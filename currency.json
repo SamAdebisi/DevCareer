@@ -1,0 +1,52 @@
+[
+    {
+      "fromCurrency": "NGN",
+      "fromCurrencyFullName": "Nigerian Naira",
+      "fromAmount": "0",
+      "toCurrency": "EUR",
+      "toCurrencyFullName": "EUROPEAN EURO",
+      "toAmount": 0,
+      "exchangeRate": 300,
+      "currencyPair": "NGNEUR"
+    },
+    {
+      "fromCurrency": "NGN",
+      "fromCurrencyFullName": "Nigerian Naira",
+      "fromAmount": "0",
+      "toCurrency": "USR",
+      "toCurrencyFullName": "American Dollar",
+      "toAmount": 0,
+      "exchangeRate": 900,
+      "currencyPair": "NGNUSD"
+    },
+    {
+      "fromCurrency": "NGN",
+      "fromCurrencyFullName": "Nigerian Naira",
+      "fromAmount": "0",
+      "toCurrency": "CED",
+      "toCurrencyFullName": "Ghana Cedi",
+      "toAmount": 0,
+      "exchangeRate": 100,
+      "currencyPair": "NGNCED"
+    },
+    {
+      "fromCurrency": "NGN",
+      "fromCurrencyFullName": "Nigerian Naira",
+      "fromAmount": "0",
+      "toCurrency": "RWF",
+      "toCurrencyFullName": "Rwanda Franc",
+      "toAmount": 0,
+      "exchangeRate": 50,
+      "currencyPair": "NGNRWF"
+    },
+    {
+      "fromCurrency": "NGN",
+      "fromCurrencyFullName": "Nigerian Naira",
+      "fromAmount": "0",
+      "toCurrency": "GBP",
+      "toCurrencyFullName": "Great-Britain Pounds-Sterling",
+      "toAmount": 0,
+      "exchangeRate": 450,
+      "currencyPair": "NGNGBP"
+    }
+  ]

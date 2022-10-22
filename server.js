@@ -1,85 +1,40 @@
+import { createServer } from 'http';
+import express, { json } from 'express';
+import cors from 'cors'; 
 
-//Get the framework for hapi.js
-// import Hapi from 'hapi';
+// var cors = require('cors')
 
-import { Server } from 'hapi';
-const host = 'localhost';
+// import 'items' from 'routes' folder
+import router from './routes/items.js';
+
+// create new app
+const app = express();
+app.use(express.json());
+
+app.use(cors({origin: 'http://localhost:8100'}));
+
+app.use('/items', router);
+
+//Route
+app.get('/',(req,res) => {
+  res.send('Hey! This is a currency converter. Use it well!!!')
+})
+//MongoDB connection
+// mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
+// mongoose.connection.once('open', () => {
+//   console.log('Database connected Successfully');
+// }).on('error', (err) => {
+//   console.log('Error', err);
+// })
+
+//Server
+// app.listen(3000, () => {
+//   console.log('Server is Up')
+// })
+
+const server = createServer(app);
 const port = 3000;
+server.listen(port);
 
-// Lets create the server here
-const server = Server({
-    host: host,
-    port: port
-});
+console.debug('Server listening on port ' + port);
 
-// Create an init method to start the server. 
-const init = async () => {
-
-    await server.start();
-    console.log("Server up and running at port: " + port);
-
-}
-
-//Setup the routes
-// import server from './routes/routes';
-
-// require('./routes/routes')(server);
-
-import CC from 'currency-converter-lt';
-
-server.route({
-    method: 'GET',
-    path: '/currency/fromcurrency/tocurrency/{amounttoconvert}',
-    handler: (request, h) => {
-        
-        let fromcurrency = "usd"; // us dollars
-
-        let tocurrency ="ngn"; // nigerian naira 
-        
-        // const amounttoconvert = parseInt(request.params.amounttoconvert);
-        
-        let amounttoconvert = 1;
-
-        let currencyconverter = new CC({
-            from: fromcurrency,
-            to: tocurrency,
-            amount: amounttoconvert,
-        })
-
-        var data = {
-            answer:   
-            currencyconverter.convert(amounttoconvert).then ((Response) => {
-                console.log(amounttoconvert + " " + fromcurrency 
-                + " is equal to " + Response
-                + " " + tocurrency
-                )
-            }),
-        };
-
-        return data;
-
-        // let fromcurrency = "usd"; // us dollars
-
-        // let tocurrency ="ngn"; // nigerian naira 
-        
-        // const amounttoconvert = parseInt(request.params.amounttoconvert);
-        
-        // let amounttoconvert = 1; 
-
-        // let currencyconverter = new CC({
-        //         from: fromcurrency,
-        //         to: tocurrency,
-        //         amount: amounttoconvert,
-        //     })
-            
-        //     currencyconverter.convert().then ((Response) => {
-        //         console.log(amounttoconvert + " " + fromcurrency 
-        //         + " is equal to " + Response
-        //         + " " + tocurrency
-        //         )
-        //     });
-        }
-});
-
-// Call the init method.
-init();
