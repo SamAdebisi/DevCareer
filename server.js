@@ -1,6 +1,20 @@
 import { createServer } from 'http';
 import express, { json } from 'express';
 import cors from 'cors'; 
+import con from './mysql_file';
+
+// let mysql = require('mysql');
+
+// let con = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "admin"
+// });
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
 
 // var cors = require('cors')
 
@@ -31,7 +45,7 @@ app.get('/',(req,res) => {
 // app.listen(3000, () => {
 //   console.log('Server is Up')
 // })
-
+con
 const server = createServer(app);
 const port = 3000;
 server.listen(port);
